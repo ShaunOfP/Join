@@ -1,0 +1,48 @@
+.legalNoticeContainerAll {
+    position: relative;
+    top: 206px;
+    left: 328px; 
+    width: calc(100% - 328px); 
+    padding-bottom: 90px;
+   padding-right: 52px;
+}
+
+.backArrowLegalNotice {
+    cursor: pointer;
+    position: fixed;
+    top: 206px;
+    right: 124px;
+    z-index: 1; 
+}
+
+.punkt {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+
+
+
+@media only screen and (max-width: 1157px) {
+    .legalNoticeContainerAll {
+        left: 50px; 
+        width: calc(100% - 50px);
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .legalNoticeContainerAll {
+        left: 50px; 
+        width: calc(100% - 50px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .legalNoticeContainerAll {
+        left: 10px; 
+        width: calc(100% - 10px);
+    }
+}

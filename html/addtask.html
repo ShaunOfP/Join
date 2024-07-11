@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Join | Add Task</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+
+    <script src="../js/userData.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/login-script.js"></script>
+    <script src="../js/add-task.js"></script>
+    <script src="../js/html-add-task.js"></script>
+    <script src="../js/responsive-add-task.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+</head>
+
+<body onload="includeHTML(); initAddTask();">
+    <div w3-include-html="../templates/headerandnavbar.html"></div>
+
+    <div id="add-task-desktop-version"
+        class="position-absolute left-232 top-96 bg-color-special-gray w-80 height-custom padding-left-96 padding-top-110">
+        <div class="headline-add-task">Add Task</div>
+
+        <form id="add-task-form" class="height-custom-2 d-flex flex-colum-custom justify-content-between"
+            onsubmit="addTodos(); return false;">
+            <div id="add-task-left-container" class="d-flex justify-content-between">
+                <div class="flex-column align-items-start gap-16">
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">Title <span class="text-danger">*</span>
+                        </div>
+                        <input class="form-control" type="text" name="title" id="addtask-title"
+                            placeholder="Enter a title" required>
+                    </div>
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">Description</div>
+                        <textarea class="form-control" name="description" id="addtask-description" cols="30" rows="8"
+                            placeholder="Enter a description"></textarea>
+                    </div>
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">
+                            Assigned to
+                        </div>
+                        <div class="dropdown">
+                            <button class="form-select form-add-task" id="task-assignee" data-mdb-toggle="dropdown"
+                                aria-expanded="false">
+                                Select Contacts
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            </ul>
+                        </div>
+                        <div id="assigned-user-icons" class="d-flex padding-top-bottom-5 height-45 max-width-440 overflow-auto"></div>
+                    </div>
+                </div>
+
+                <div class="middle-border"></div>
+
+                <div id="add-task-right-container"
+                    class="d-flex flex-colum-custom align-items-start gap-16 justify-content-between">
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">Due date <span class="text-danger">*</span>
+                        </div>
+                        <input class="form-control" type="date" name="date" id="addtask-date" required>
+                    </div>
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">Priority</div>
+                        <div class="w-100 d-flex align-items-center gap-16">
+                            <button type="button"
+                                class="btnpriority add-task-buttons d-flex align-items-center justify-content-center urgent-selected"
+                                value="urgent">Urgent
+                                <img src="../img/icons/urgenticon.svg" alt="">
+                            </button>
+                            <button type="button"
+                                class="btnpriority add-task-buttons add-task-button-selected d-flex align-items-center justify-content-center medium-selected"
+                                value="medium">Medium
+                                <img src="../img/icons/mediumicon.svg" alt="">
+                            </button>
+                            <button type="button"
+                                class="btnpriority add-task-buttons d-flex align-items-center justify-content-center low-selected"
+                                value="low">Low
+                                <img src="../img/icons/lowicon.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="fontsize-20 fontweight-400">Category <span class="text-danger">*</span>
+                        </div>
+                        <select class="form-select form-control" id="addtask-category" name="task-category" required>
+                            <option value="" disabled selected>Select contacts to assign</option>
+                            <option value="Technical Task">Technical Task</option>
+                            <option value="User Story">User Story</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="fontsize-20 fontweight-400">Subtasks</div>
+                        <div class="position-relative">
+                            <input class="form-add-task add-subtask-input-field form-control" type="text" name="subtasks"
+                                id="addtask-subtasks" placeholder="Add a new subtask">
+                            <img src="../img/add-task/add1.svg" id="add-subtask-image" onclick="addToDropdown()">
+                        </div>
+                        <div id="placeholder"> </div>
+                        <ul id="add-task-subtask-dropdown-container" class="margin-top-10"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="add-task-desktop-submit-container" class="d-flex justify-content-between align-items-center margin-bottom-20">
+                <div class="add-task-required-field">
+                    <span class="text-danger">*</span>
+                    <span>This field is required</span>
+                </div>
+                <div class="d-flex gap-16">
+                    <div>
+                        <button class="clear-btn" type="button" onclick="clearFields();">Clear X</button>
+                    </div>
+                    <div>
+                        <button class="create-task-button d-flex" type="submit">Create Task
+                            <img src="../img/icons/check.svg">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div id="edit-success-message" class="position-absolute d-none align-items-center justify-content-evenly bg-color-special border-radius-20 height-74 width-326 inset-0 margin-auto">
+            <div class="weight-400 size-20 color-white">
+                Task added to board
+            </div>
+            <img src="../img/add-task/board-icon.svg">
+        </div>
+    </div>
+
+    <!-- Responsive Section -->
+    <form id="responsive-container" class="padding-top-96 padding-bottom-80 align-items-center gap-16 flex-column"
+        onsubmit="responsiveAddTodos(); return false;">
+        <h1 class="size-47 weight-700 padding-top-80 color-black">Add Task</h1>
+
+        <div class="d-flex flex-column gap-16 padding-bottom-168 w-80">
+            <div class="w-100">
+                <p class="fontsize-20">Title <span class="text-danger">*</span></p>
+                <input required="required" id="responsive-add-task-title" placeholder="Enter a title"
+                    class="w-100 rounded-4 height-40 border border-light-subtle input-padding">
+            </div>
+            <div class="w-100">
+                <p class="fontsize-20">Description</p>
+                <textarea placeholder="Enter a Description" id="responsive-add-task-description"
+                    class="w-100 rounded-4 height-88 border border-light-subtle input-padding"></textarea>
+            </div>
+            <div class="w-100">
+                <div class="fontsize-20 fontweight-400">Priority</div>
+                <div id="responsive-btn-section" class="w-100 d-flex justify-content-between gap-16">
+                    <button type="button"
+                        class="responsivePrioBtn add-task-buttons d-flex align-items-center justify-content-center urgent-selected"
+                        value="urgent">Urgent
+                        <img src="../img/icons/urgenticon.svg" alt="">
+                    </button>
+                    <button type="button"
+                        class="responsivePrioBtn add-task-buttons responsive-add-task-button-selected d-flex align-items-center justify-content-center medium-selected"
+                        value="medium">Medium
+                        <img src="../img/icons/mediumicon.svg" alt="">
+                    </button>
+                    <button type="button"
+                        class="responsivePrioBtn add-task-buttons d-flex align-items-center justify-content-center low-selected"
+                        value="low">Low
+                        <img src="../img/icons/lowicon.svg" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="w-100">
+                <p class="fontsize-20">Due date <span class="text-danger">*</span></p>
+                <input required="required" type="date" id="responsive-add-task-date"
+                    class="w-100 height-40 rounded-4 border border-light-subtle input-padding">
+            </div>
+            <div class="w-100">
+                <div class="fontsize-20 fontweight-400">Category <span class="text-danger">*</span>
+                </div>
+                <select class="form-select form-control" id="responsive-add-task-category" name="task-category"
+                    required>
+                    <option value="" disabled selected>Select contacts to assign</option>
+                    <option value="Technical Task">Technical Task</option>
+                    <option value="User Story">User Story</option>
+                </select>
+            </div>
+            <div class="w-100" id="responsive-assigned-section">
+                <div class="fontsize-20 fontweight-400">
+                    Assigned to
+                </div>
+                <div class="dropdown">
+                    <button class="form-select form-add-task w-100" type="button" id="responsive-assign-contacts" data-mdb-toggle="dropdown"
+                        aria-expanded="false">
+                        Select Contacts
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"></ul>
+                </div>
+                <div id="responsive-assigned-user-icons" class="d-flex height-45 padding-top-bottom-5 max-width-440 overflow-auto"></div>
+            </div>
+            <div class="w-100">
+                <p class="fontsize-20">Subtasks</p>
+                <div class="d-flex align-items-center">
+                    <input name="responsive-subtask-input" id="responsive-add-task-subtasks"
+                        type="text" class="w-100 rounded-4 height-40 border border-light-subtle input-padding"
+                        placeholder="Add a new subtask">
+                    <img class="margin-left-negative-42 width-25 height-25" src="../img/add-task/add1.svg"
+                        id="responsive-add-subtask-image" onclick="responsiveAddToDropdown()">
+                </div>
+            </div>
+            <ul id="responsive-add-task-subtask-dropdown-container" class="w-100 margin-top-10"></ul>
+        </div>
+        <div id="responsive-footer-section"
+            class="position-fixed bottom-80 w-100 bg-color-gray height-88 d-flex justify-content-between align-items-center padding-16">
+            <div class="d-flex">
+                <span class="text-danger">* </span><p class="size-20">This field is required</p>
+            </div>
+            <button type="submit"
+                class="d-flex justify-content-center align-items-center btn-primary radius-10 padding-16 bg-color-stuff color-white width-183 height-56 border-none">
+                <p class="weight-700 size-21">Create Task</p><img src="../img/add-task/check_white.svg">
+            </button>
+        </div>
+    </form>
+
+    <div id="responsive-edit-success-message" class="position-fixed d-none align-items-center justify-content-evenly bg-color-special border-radius-20 height-74 width-326 inset-0 margin-auto">
+        <div class="weight-400 size-20 color-white">
+            Task added to board
+        </div>
+        <img src="../img/add-task/board-icon.svg">
+    </div>
+</body>
+
+</html>

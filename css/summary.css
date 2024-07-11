@@ -1,0 +1,502 @@
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.headlineSummaryContainer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    animation: slideInFromTop 500ms forwards;
+}
+
+.summaryContainer {
+    position: fixed;
+    top: 206px;
+    left: 328px;
+    bottom: 0;
+    animation: slideInFromTop 500ms forwards;
+}
+
+.partingLine {
+    height: 59px;
+    width: 3px;
+    background: #29abe2;
+}
+
+.headlineSummary {
+    margin: 0;
+    font-size: 61px;
+    font-weight: bold;
+}
+
+.SummaryCardContainer {
+    position: fixed;
+    top: 335px;
+    left: 328px;
+    animation: slideInFromTop 500ms forwards;
+}
+
+.toDoCard {
+    width: 264px;
+    height: 168px;
+    border-radius: 30px;
+    padding: 38px 19px 38px 19px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+}
+
+.todoIcon {
+    height: 69px;
+    width: 69px;
+}
+
+.doneCard {
+    width: 264px;
+    height: 168px;
+    border-radius: 30px;
+    padding: 38px 19px 38px 19px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+}
+
+.urgentCard {
+    width: 560px;
+    height: 168px;
+    border-radius: 30px;
+    padding: 28px 48px 28px 70px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    margin: 28px 0;
+}
+
+.urgentPartingLine {
+    height: 102px;
+    width: 2px;
+    background: #d1d1d1;
+}
+
+.tasksInBoardCard,
+.tasksInProgressCard,
+.awaitingFeedbackCard {
+    width: 168px;
+    height: 168px;
+    border-radius: 30px;
+    padding: 25px 0px 25px 0px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    text-align: center;
+}
+
+.greetingContainer {
+    position: fixed;
+    top: 547px;
+    left: 968px;
+    animation: slideInFromTop 500ms forwards;
+}
+
+.hoverEffect:hover {
+    transform: scale(1.05);
+    background-color: #2a3647;
+}
+
+.hoverEffect:hover .fontsize-16,
+.hoverEffect:hover .fontsize-20,
+.hoverEffect:hover .fontsize-21,
+.hoverEffect:hover .fontsize-64 {
+    color: #ffffff;
+}
+
+.hoverEffect:hover .todoIcon,
+.hoverEffect:hover .doneIcon {
+    filter: invert(100%) brightness(2) contrast(2);
+}
+
+.hoverEffect:hover .urgentPartingLine {
+    background-color: #ffffff;
+}
+
+.linkToBoard {
+    text-decoration: none;
+    color: black;
+}
+
+
+.headlineSummary {
+    order: 1;
+}
+
+.partingLine {
+    order: 2;
+}
+
+.summarySlogan {
+    order: 3;
+}
+
+@media only screen and (max-width: 1166px) {
+    .greetingContainer {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 980px) {
+    .headlineSummaryContainer {
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+    }
+
+    .partingLine {
+        height: 3px;
+        width: 59px;
+        background: #29abe2;
+    }
+
+    .headlineSummary {
+        order: 1;
+    }
+
+    .partingLine {
+        order: 3;
+    }
+
+    .summarySlogan {
+        order: 2;
+    }
+
+    .SummaryCardContainer {
+        top: 380px;
+        left: auto;
+    }
+
+    .summaryContainer {
+        top: 206px;
+        left: auto;
+    }
+}
+
+
+@media only screen and (max-width: 590px) {
+    .toDoCard {
+        width: 211.2px;
+        height: 134.4px;
+    }
+
+    .toDoCard .summaryTodoNumber {
+        font-size: 48px;
+    }
+
+    .toDoCard .summaryTodoHeadline {
+        font-size: 16px;
+    }
+
+    .doneCard {
+        width: 211.2px;
+        height: 134.4px;
+    }
+
+    .doneCard .summaryTodoNumber {
+        font-size: 48px;
+    }
+
+    .todoIcon {
+        height: 55px;
+        width: 55px;
+    }
+
+    .doneIcon {
+        height: 55px;
+        width: 55px;
+    }
+
+    .doneCard .summaryTodoHeadline {
+        font-size: 16px;
+    }
+
+    .urgentCard {
+        width: 448px;
+        height: 134.4px;
+    }
+
+    .urgentCard .summaryTodoNumber {
+        font-size: 48px;
+    }
+
+    .urgentCard .summaryUrgentHeadline {
+        font-size: 16px;
+    }
+
+    .urgentCard .urgentPartingLine {
+        height: 80.4px;
+    }
+
+    .tasksInBoardCard {
+        width: 134.4px;
+        height: 134.4px;
+    }
+
+    .tasksInBoardCard .tasksInBoardAmont {
+        font-size: 48px;
+    }
+
+    .tasksInBoardCard .tasksInBoardFirstTD {
+        font-size: 16px;
+    }
+
+    .tasksInBoardCard .tasksInBoardSecondTD {
+        font-size: 16px;
+    }
+
+    .tasksInProgressCard {
+        width: 134.4px;
+        height: 134.4px;
+    }
+
+    .linkToBoard .tasksInProgressAmount {
+        font-size: 48px;
+    }
+
+    .linkToBoard .tasksInProgressFirstTD {
+        font-size: 16px;
+    }
+
+    .linkToBoard .tasksInProgressSecondTD {
+        font-size: 16px;
+    }
+
+    .awaitingFeedbackCard {
+        width: 134.4px;
+        height: 134.4px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackAmount {
+        font-size: 48px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextFirstTD {
+        font-size: 16px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextSecondTD {
+        font-size: 16px;
+    }
+}
+
+
+@media only screen and (max-width: 470px) {
+    .toDoCard {
+        width: 169.92px;
+        height: 107.52px;
+    }
+
+    .toDoCard .summaryTodoNumber {
+        font-size: 38.4px;
+    }
+
+    .toDoCard .summaryTodoHeadline {
+        font-size: 12.8px !important;
+    }
+
+    .doneCard {
+        width: 169.92px;
+        height: 107.52px;
+    }
+
+    .doneCard .summaryTodoNumber {
+        font-size: 38.4px;
+    }
+
+    .urgentCard {
+        width: 372.4px;
+        height: 107.52px;
+        gap: 31px !important;
+    }
+
+    .urgentCard .summaryTodoNumber {
+        font-size: 38.4px;
+    }
+
+    .urgentCard .urgentDeadlineDate {
+        font-size: 12.8px;
+    }
+    .urgentCard .urgentDeadlineText  {
+        font-size: 10.0px;
+    }
+
+    .urgentCard .urgentPartingLine {
+        height: 64.32px;
+    }
+
+    .tasksInBoardCard {
+        width: 107.52px;
+        height: 107.52px;
+    }
+
+    .tasksInBoardCard .tasksInBoardAmont {
+        font-size: 38.4px;
+    }
+
+    .tasksInBoardCard .tasksInBoardFirstTD {
+        font-size: 12.8px;
+    }
+
+    .tasksInBoardCard .tasksInBoardSecondTD {
+        font-size: 12.8px;
+    }
+
+    .tasksInProgressCard {
+        width: 107.52px;
+        height: 107.52px;
+    }
+
+    .linkToBoard .tasksInProgressAmount {
+        font-size: 38.4px;
+    }
+
+    .linkToBoard .tasksInProgressFirstTD {
+        font-size: 12.8px;
+    }
+
+    .linkToBoard .tasksInProgressSecondTD {
+        font-size: 12.8px;
+    }
+
+    .awaitingFeedbackCard {
+        width: 107.52px;
+        height: 107.52px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackAmount {
+        font-size: 38.4px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextFirstTD {
+        font-size: 12.8px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextSecondTD {
+        font-size: 12.8px;
+    }
+}
+
+
+
+@media only screen and (max-width: 395px) {
+
+    .SummaryCardContainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todoDoneContainer {
+        gap: 8px !important;
+    }
+
+    .toDoCard {
+        width: 150px;
+        height: 86.016px;
+    }
+
+    .toDoCard .summaryTodoNumber {
+        font-size: 30.72px;
+    }
+
+     .summaryTodoHeadline {
+        font-size: 12.8px !important;
+    }
+
+    .doneCard {
+        width: 135.936px;
+        height: 86.016px;
+    }
+
+    .doneCard .summaryTodoNumber {
+        font-size: 30.72px;
+    }
+
+    .urgentCard {
+        width: 297.92px;
+        height: 86.016px;
+        gap: 24.8px !important;
+        padding: 28px 48px 28px 38px;
+    }
+
+    .urgentCard .summaryTodoNumber {  
+        font-size: 30.72px;
+    }
+
+    .urgentCard .urgentDeadlineDate {
+        font-size: 12.8px;
+    }
+
+    .urgentCard .urgentPartingLine {
+        height: 51.456px;
+    }
+
+    .tasksInBoardCard {
+        width: 86.016px;
+        height: 86.016px;
+    }
+
+    .tasksInBoardCard .tasksInBoardAmont {
+        font-size: 30.72px;
+    }
+
+    .tasksInBoardCard .tasksInBoardFirstTD {
+        font-size: 12.8px;
+    }
+
+    .tasksInBoardCard .tasksInBoardSecondTD {
+        font-size: 12.8px;
+    }
+
+    .tasksInProgressCard {
+        width: 86.016px;
+        height: 86.016px;
+    }
+
+    .linkToBoard .tasksInProgressAmount {
+        font-size: 30.72px;
+    }
+
+    .linkToBoard .tasksInProgressFirstTD {
+        font-size: 12.8px;
+    }
+
+    .linkToBoard .tasksInProgressSecondTD {
+        font-size: 12.8px;
+    }
+
+    .awaitingFeedbackCard {
+        width: 86.016px;
+        height: 86.016px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackAmount {
+        font-size: 30.72px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextFirstTD {
+        font-size: 12.8px;
+    }
+
+    .awaitingFeedbackCard .awaitingFeedbackTextSecondTD {
+        font-size: 12.8px;
+    }
+
+    .summaryTasksFeedbackContainer {
+        gap: 14px !important;
+    }
+}

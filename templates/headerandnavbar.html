@@ -1,0 +1,86 @@
+<div class="headerContainer">
+    <img class="responsivLogo" src="../img/logo.svg" alt="logo" class="Navbar Logo">
+    <span class="headlineKanban flex">
+        Kanban Project Management Tool
+    </span>
+    <div class="helpAndUserIconContainer d-flex align-items-center gap-16">
+        <a class="helpIconClass" href="./help.html">
+            <img src="../img/icons/help.svg" alt="helpicon">
+        </a>
+        <a href="#" id="userIcon">
+            <img src="../img/icons/gasticon.svg" alt="usericon" class="userIcon">
+        </a>
+    </div>
+</div>
+
+<div class="userLogout d-none" id="userLogout">
+    <div class="menuLinks d-flex flex-column align-items-start">
+        <a class="menuLink" href="./legalnotice.html">Legal notice</a>
+        <a class="menuLink" href="./privacy-policy.html">Privacy Policy</a>
+        <a class="menuLink" onclick="clearLocalStorage();window.location.href='../index.html';">Log out</a>
+    </div>
+</div>
+
+<div class="sideBarContainer vh-100 ">
+
+    <img src="../img/logowhite.svg" alt="logo" class="Navbar Logo">
+
+    <div class="navbarLinksContainer d-flex flex-column align-items-start gap-15">
+        <a href="./summary.html" id="summaryID" class="navStyle d-flex gap-8 fontsize-16"
+            onclick="updateActiveTab('summaryID')">
+            <img src="../img/icons/summaryicon.svg" alt="Zusammenfassungslogo">
+            Summary
+        </a>
+        <a href="./addtask.html" id="addtaskID" class="navStyle d-flex gap-8 fontsize-16"
+            onclick="updateActiveTab('addtaskID')">
+            <img src="../img/icons/addtaskicon.svg" alt="Symbol für Aufgabe hinzufügen">
+            Add Task
+        </a>
+        <a href="./board.html" id="boardID" class="navStyle d-flex gap-8 fontsize-16"
+            onclick="updateActiveTab('boardID')">
+            <img src="../img/icons/boardicon.svg" alt="Board Icon">
+            Board
+        </a>
+        <a href="./contacts.html" id="contactsID" class="navStyle d-flex gap-8 fontsize-16"
+            onclick="updateActiveTab('contactsID')">
+            <img src="../img/icons/contactsicon.svg" alt="Contacts Icon">
+            Contacts
+        </a>
+
+    </div>
+    <div class="navbarLinksContainerBottom d-flex gap-15">
+        <div>
+            <a href="./privacy-policy.html" class="navStyleBottom-privat fontsize-16">Privacy Policy</a>
+        </div>
+        <div>
+            <a href="./legalnotice.html" class="navStyleBottom-legal fontsize-16">Legal notice</a>
+        </div>
+    </div>
+</div>
+
+<div class="sideBarContainerResponsiv">
+    <div id="responsiveSummaryID" class="summaryNavBarLinkContainer">
+        <a href="./summary.html" class="navStyleResponsiv" onclick="storeCurrentPage()">
+            <img class="navbarLogoResponsiv" src="../img/icons/summaryicon.svg" alt="Summary logo">
+            <span class="sideBarText">Summary</span>
+        </a>
+    </div>
+    <div id="responsiveAddtaskID" class="summaryNavBarLinkContainer">
+        <a href="./addtask.html" class="navStyleResponsiv" onclick="storeCurrentPage()">
+            <img class="navbarLogoResponsiv" src="../img/icons/addtaskicon.svg" alt="Add Task Icon">
+            <span class="sideBarText">Add Task</span>
+        </a>
+    </div>
+    <div id="responsiveBoardID" class="summaryNavBarLinkContainer">
+        <a href="./board.html" class="navStyleResponsiv" onclick="storeCurrentPage()">
+            <img class="navbarLogoResponsiv" src="../img/icons/boardicon.svg" alt="Board Icon">
+            <span class="sideBarText">Board</span>
+        </a>
+    </div>
+    <div id="responsiveContactsID" class="summaryNavBarLinkContainer">
+        <a href="./contacts.html" class="navStyleResponsiv" onclick="storeCurrentPage()">
+            <img class="navbarLogoResponsiv" src="../img/icons/contactsicon.svg" alt="Contacts Icon">
+            <span class="sideBarText">Contacts</span>
+        </a>
+    </div>
+</div>

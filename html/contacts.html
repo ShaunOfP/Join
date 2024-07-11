@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Join | Contacts</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"> <!-- deaktiviert Landscape mode-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <script src="../js/userData.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/login-script.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/contacts.js"></script>
+    <script src="../js/responsive-contact.js"></script>
+</head>
+
+<body onload="includeHTML(); storeCurrentPage(); initContacts()">
+    <div id="form-bg" class="form-bg">
+        <div id="add-contact-container" class="add-contact-container">
+            <div class="add-contact-left-side">
+                <div><img src="../img/contact/Capa 2.svg"></div>
+                <div class="gap-16">
+                    <div class="gap-8 d-flex flex-column align-items-start">
+                        <h1 class="margin-0 weight-700 size-61 line-height-73">Add contact</h1>
+                        <h2 class="margin-0 weight-400 size-27 line-height-32">Tasks are better with a team!</h2>
+                        <div class="border-color-special-blue width-90"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form onsubmit="addNewContact(); return false;">
+                <div class="add-contact-right-side padding-48">
+                    <div class="d-flex justify-content-end">
+                        <button class="x-button pointer" type="button" onclick="closeAddContactForm()">
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div
+                            class="d-flex justify-content-center margin-left-35 align-items-center height-120 width-120 rounded-circle bg-color-grey">
+                            <img class="height-64 width-64" src="../img/contact/person-white.svg">
+                        </div>
+                        <div class="d-flex flex-column gap-32 align-items-start">
+                            <div class="d-flex flex-column w-422 h-215 gap-32">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-person border-color-grey"
+                                    id="newContactName" type="text" required="required" placeholder="Name">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-mail border-color-grey"
+                                    id="newContactMail" type="email" required="required" placeholder="Email">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-phone border-color-grey"
+                                    id="newContactPhoneNumber" required="required" type="tel" placeholder="Phone">
+                            </div>
+                            <div class="d-flex gap-24">
+                                <button class="cancel-hover btn btn-primary cancel-btn text-lg-start pointer"
+                                    onclick="closeAddContactForm()" type="button">
+                                    <p class="margin-0 padding-left-5">Cancel</p>
+                                </button>
+                                <button
+                                    class="btn-hover btn btn-primary create-btn d-flex justify-content-center align-items-center pointer"
+                                    type="submit">
+                                    <p class="margin-0 weight-700 size-21">Create contact</p><img
+                                        src="../img/contact/check.svg">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="edit-form" class="edit-form">
+        <div id="edit-contact-container" class="position-absolute inset-0 margin-auto z-1 height-592 width-1212 d-flex">
+            <div class="add-contact-left-side">
+                <div><img src="../img/contact/Capa 2.svg"></div>
+                <div class="gap-16">
+                    <div class="gap-8 d-flex flex-column align-items-start">
+                        <h1 class="margin-0 weight-700 size-61 line-height-73">Edit contact</h1>
+                        <div class="border-color-special-blue width-90"></div>
+                    </div>
+                </div>
+            </div>
+
+            <form onsubmit="saveChanges(); return false;">
+                <div class="add-contact-right-side padding-48">
+                    <div class="d-flex justify-content-end"><button class="x-button pointer" type="button"
+                            onclick="closeEditContactForm()"></button></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div
+                            class="d-flex justify-content-center margin-left-35 align-items-center height-120 width-120 rounded-circle bg-color-grey">
+                            <div id="edit-icon"
+                                class="height-64 width-64 d-flex justify-content-center align-items-center size-47 weight-500 color-white">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-32 align-items-start">
+                            <div class="d-flex flex-column w-422 h-215 gap-32">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-person border-color-grey"
+                                    id="editContactName" type="text" required="required" placeholder="Name">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-mail border-color-grey"
+                                    id="editContactMail" type="email" required="required" placeholder="Email">
+                                <input
+                                    class="add-contact-input-field form-control add-contact-bg-phone border-color-grey"
+                                    id="editContactPhoneNumber" required="required" type="tel" placeholder="Phone">
+                                <div class="w-100">
+                                    <p id="edit-contact-error"
+                                        class="color-red margin-top-negative-32 margin-bottom-negative-20"></p>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-24">
+                                <button class="cancel-hover btn btn-primary cancel-btn text-lg-start pointer"
+                                    onclick="deleteContact()" type="button">
+                                    <p class="margin-0 padding-left-5">Delete</p>
+                                </button>
+                                <button
+                                    class="btn-hover btn btn-primary create-btn d-flex justify-content-center align-items-center pointer"
+                                    type="submit">
+                                    <p class="margin-0 weight-700 size-21">Save</p><img src="../img/contact/check.svg">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div w3-include-html="../templates/headerandnavbar.html"></div>
+    <div class="contact-container">
+        <div class="contact-list">
+            <div class="contact-list-header">
+                <button class="add-contact-button pointer" type="button" onclick="showAddContactForm()">
+                    <p>Add new contact</p><img src="../img/contact/person_add.svg">
+                </button>
+            </div>
+            <div id="contact-list-entries-container" class="contact-list-entries-container">
+            </div>
+        </div>
+        <div class="contact-details margin-left-62">
+            <div class="contact-details-headline margin-bottom-20">
+                <div>
+                    <h1 class="weight-bold size-61">Contacts</h1>
+                </div>
+                <div class="contact-details-headline-seperator"></div>
+                <div class="weight-400 size-27">Better with a team</div>
+            </div>
+            <div id="contact-information-container"></div>
+        </div>
+    </div>
+
+    <div id="success-message" class="success-contact height-74 width-326">
+        <div class="d-flex justify-content-center align-items-center height-74 width-362">
+            <p class="margin-0">Contact succesfully created</p>
+        </div>
+    </div>
+
+    <!-- Responsive Section -->
+    <div id="responsive-contact-list" class="responsive-contact-list justify-content-center padding-top-100">
+        <div id="responsive-contact-container" class="padding-bottom-80 w-100 max-width-352 flex-direction-column">
+        </div>
+        <a id="responsive-add-contact-button"
+            onclick="showResponsiveAddContact(); changeAddContactImageBackgroundColor(this);"
+            class="bg-color-special hover rounded-circle d-flex justify-content-center align-items-center position-fixed right-20 bottom-110 height-56 width-56 pointer"><img
+                src="../img/contact/person_add.svg"></a>
+
+        <div id="responsive-success-message" class="responsive-success-message height-74 width-326">
+            <div class="d-flex justify-content-center align-items-center height-74 width-362">
+                <p class="margin-0">Contact succesfully created</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="responsiveAddContact" class="dp-none bg-color-dark-grey z-999 position-fixed sides-0">
+        <div class="height-full width-full d-flex justify-content-center align-items-center">
+            <div class="position-absolute">
+                <div
+                    class="position-relative height-120 width-120 top-negative-30 d-flex justify-content-center align-items-center bg-color-grey rounded-circle border-width-3 border-white">
+                    <img src="../img/contact/person-white.svg">
+                </div>
+            </div>
+            <form id="responsive-add-contact-form" class="height-760 max-width-396 responsive-border-style w-100"
+                onsubmit="responsiveAddContact(); return false;">
+                <div
+                    class="height-352 max-width-396 bg-color-special d-flex border-rounded-top flex-column justify-content-around align-items-start padding-20 margin-left-right-10">
+                    <a class="d-flex justify-content-end w-100"><img class="hover"
+                            onclick="closeResponsiveAddContactForm()" src="../img/contact/close-white.svg"></a>
+                    <div class="d-flex flex-column justify-content-center align-items-start">
+                        <span id="add-contact-h1" class="color-white size-47 weight-700">Add contact</span>
+                        <span id="add-contact-h2" class="color-white size-20 weight-400 margin-bottom-16">Tasks are
+                            better with a team!</span>
+                        <div class="border-color-special-blue width-90 margin-0"></div>
+                    </div>
+                    <div class="w-100 height-2"> </div>
+                </div>
+
+                <div
+                    class="height-408 max-width-396 bg-color-white border-rounded-bottom bg-color-white d-flex flex-column justify-content-evenly align-items-center padding-top-20 margin-left-right-10">
+                    <div class="d-flex flex-column gap-15 max-width-364 w-90">
+                        <div class="height-41 w-100 d-flex">
+                            <input class="form-control height-41 border-color-grey input-padding"
+                                id="responsiveInputName" type="text" placeholder="Name" required="required">
+                            <img class="margin-left-negative-44" src="../img/contact/person.svg">
+                        </div>
+                        <div class="height-41 w-100 d-flex">
+                            <input class="form-control height-41 border-color-grey input-padding"
+                                id="responsiveInputMail" type="email" placeholder="Email" required="required">
+                            <img class="margin-left-negative-42" src="../img/contact/mail.svg">
+                        </div>
+                        <div class="height-41 w-100 d-flex">
+                            <input class="form-control height-41 border-color-grey input-padding"
+                                id="responsiveInputPhoneNumber" type="tel" placeholder="Phone" required="required">
+                            <img class="margin-left-negative-42" src="../img/contact/call.svg">
+                        </div>
+                    </div>
+                    <button
+                        class="bg-color-special d-flex justify-content-center align-items-center gap-4-px btn btn-primary border-color-special color-white pointer"
+                        type="submit">
+                        <p class="weight-700 size-21 margin-0">Create contact</p><img src="../img/contact/check.svg">
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="responsive-contact-details"
+        class="d-none justify-content-start padding-top-120 padding-left-10 padding-bottom-80 height-100-vh">
+    </div>
+
+    <div id="dots-menu"
+        class="width-116 padding-18 rounded-top-corners rounded-bottom-left-corner bg-color-white dp-none flex-column justify-content-around align-items-start position-absolute bottom-100-px right-5 gap-15">
+        <a class="d-flex justify-content-center gap-8 hover deco-none color-black edit-hover"
+            href="javascript:showResponsiveEditForm()">
+            <div class="height-24 width-24"><img class="height-24 width-24" src="../img/contact/edit.svg"></div>
+            <p class="margin-0 size-16">Edit</p>
+        </a>
+        <a class="d-flex justify-content-center gap-8 hover deco-none color-black delete-hover"
+            href="javascript:responsiveDeleteContact()">
+            <div class="height-24 width-24"><img class="height-24 width-24" src="../img/contact/delete.svg"></div>
+            <p class="margin-0 size-16">Delete</p>
+        </a>
+    </div>
+
+    <div id="responsiveEditContact" class="dp-none bg-color-dark-grey z-999 position-fixed sides-0">
+    </div>
+</body>
+
+</html>

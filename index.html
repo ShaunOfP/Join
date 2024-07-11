@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Join | Log In</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"> <!-- deaktiviert Landscape mode-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/style.css" />
+
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+  <script src="./js/userData.js"></script>
+  <script src="./js/login-script.js"></script>
+  <script src="./js/sign-up.js"></script>
+</head>
+
+<body onload="init()">
+  <img id="logo" src="./img/logo.svg" alt="" class="" />
+
+  <div id="main-page" class="flex-column animate">
+    <header class="header-layout">
+      <div class="header-question fontweight-400 fontsize-20">Not a Join user?</div>
+      <button type="button" class="btn btn-primary sign-up-btn weight-700 size-16"
+        onclick="window.location.href='./html/sign-up.html'">Sign up</button>
+    </header>
+
+    <form onsubmit="login(); return false;" class="login-card flex-column gap-32">
+      <div class="flex-column">
+        <p class="login-text">Log in</p>
+        <img src="./img/lineblue.svg" alt="" />
+      </div>
+      <div class="input-container">
+        <input id="email" class="form-control data-input mail-input" placeholder="Email" required="required"
+          type="email" />
+        <input id="password" class="form-control data-input pw-input" placeholder="Password" required="required"
+          type="password" />
+        <div class="remember-me-container">
+          <div class="d-flex gap-8">
+            <input type="checkbox" class="" />
+            <p class="remember-me-text">Remember me</p>
+          </div>
+          <div>
+            <p id="login-error-field" class="color-red margin-0"></p>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-32">
+        <button type="submit" class="btn1">Log in</button>
+        <button class="btn2" onclick="window.location.href='./html/summary.html';">Guest Log
+          in</button>
+      </div>
+    </form>
+
+    <footer class="tos-container-login">
+      <a class="tos-login" target="_blank" href="./html/indexPrivatPolicy.html">Privacy Policy</a>
+      <a class="tos-login" target="_blank" href="./html/indexLegalNotice.html">Legal notice</a>
+    </footer>
+  </div>
+
+  <img id="logo-responsive" src="./img/logo.svg" alt="" />
+
+  <div id="responsive-page" class="animate">
+    <header id="responsive-header" class="d-flex justify-content-start"></header>
+    <div class="d-flex flex-column gap-32 w-100 padding-left-right-10">
+      <form onsubmit="responsiveLogin(); return false;" class="max-width-396 w-100">
+        <div class="d-flex justify-content-center align-items-center flex-column responsive-form-div">
+          <div id="responsive-card-header">
+            <p id="responsive-card-headline">Log in</p>
+            <img class="w-88 b-3" src="img/lineblue.svg" />
+          </div>
+          <div id="responsive-input-section-login">
+            <div id="responsive-input-fields-login">
+              <input id="responsive-email" class="form-control data-input mail-input" placeholder="Email"
+                required="required" type="email" />
+              <input id="responsive-password" class="form-control data-input pw-input" placeholder="Password"
+                required="required" type="password" />
+              <p id="responsive-login-error-field" class="color-red margin-0 margin-top-negative-27"></p>
+            </div>
+            <div id="responsive-input-checkbox">
+              <input type="checkbox" />
+              <p id="responsive-remember-me-text">Remember me</p>
+            </div>
+          </div>
+          <div id="responsive-button-section">
+            <button id="responsive-login-button" type="submit">Log in</button>
+            <button id="responsive-guest-button" type="button"
+              onclick="window.location.href='./html/summary.html';">Guest Log in</button>
+          </div>
+        </div>
+      </form>
+      <div id="responsive-signup-section">
+        <p class="w-100" id="responsive-signup-text">Not a Join user?</p>
+        <button id="responsive-signup-button" onclick="window.location.href='./html/sign-up.html';">Sign up</button>
+      </div>
+      <footer id="responsive-tos-section">
+        <p class="responsive-tos-text1">
+          <a id="responsive-tos-text1-a" href="./html/indexPrivatPolicy.html">Privacy Policy</a>
+        </p>
+        <p class="responsive-tos-text2">
+          <a id="responsive-tos-text2-a" href="./html/indexLegalNotice.html">Legal notice</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

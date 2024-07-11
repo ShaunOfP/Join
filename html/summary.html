@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Join | Board</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <script src="../js/userData.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/login-script.js"></script>
+    <script src="../js/summary.js"></script>    
+</head>
+
+<body onload="includeHTML(); storeCurrentPage(); showUsername(); init()">
+    <div w3-include-html="../templates/headerandnavbar.html"></div>
+
+    <div class="containerSummary flex justify-content-center align-content-center">
+
+        <div class="summaryContainer d-flex flex-sm-column">
+            <div class="headlineSummaryContainer">
+                <h2 class="headlineSummary">Join 360</h2>
+                <div class="partingLine"></div>
+                <p class="summarySlogan fontsize-27 fontweight-400 fontcolor-darkblue">Key Metrics at a Glance</p>
+            </div>
+        </div>
+
+        <div class="SummaryCardContainer">
+            <div class="todoDoneContainer d-flex gap-32">
+                <div class="toDoCard d-flex justify-content-center align-items-center gap-18 hoverEffect">
+                    <a class="linkToBoard" href="./board.html">
+                        <img src="../img/icons/todoicon.svg" alt="todo Icon" class="todoIcon">
+                        <div class="summaryTodoNumberContainer d-flex flex-column align-items-center">
+                            <p class="summaryTodoNumber fontsize-64 fontweight-600" id="toDoId"></p>
+                            <p class="summaryTodoHeadline fontsize-20 fontweight-400 fontcolor-darkblue">To-do</p>
+                    </a>
+                </div>
+            </div>
+            <div class="doneCard d-flex justify-content-center align-items-center gap-18 hoverEffect">
+                <a class="linkToBoard" href="./board.html">
+                    <img src="../img/icons/doneicon.svg" alt="todo Icon" class="doneIcon">
+                    <div class="summaryTodoNumberContainer d-flex flex-column align-items-center">
+                        <p class="summaryTodoNumber fontsize-64 fontweight-600" id="doneTasksCount"></p>
+                        <p class="summaryTodoHeadline fontsize-20 fontweight-400 fontcolor-darkblue">Done</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="urgentCard d-flex gap-61 hoverEffect">
+        <div class="d-flex justify-content-center align-items-center gap-18">
+            <a class="linkToBoard" href="./board.html">
+                <img src="../img/icons/urgenticon.svg" alt="todo Icon" class="urgentIcon">
+                <div class="summaryTodoNumberContainer d-flex flex-column align-items-center">
+                    <p class="summaryTodoNumber fontsize-64 fontweight-600" id="urgentAmount"></p>
+                    <p class="summaryTodoHeadline fontsize-16 fontweight-400 fontcolor-darkblue">Urgent</p>
+            </a>
+        </div>
+    </div>
+    <div class="urgentPartingLine"></div>
+    <div class="urgentDeadlineContainer d-flex flex-column justify-content-center align-items-start">
+        <a class="linkToBoard" href="./board.html">
+            <p class="urgentDeadlineDate fontsize-21 fontweight-700 fontcolor-darkblue">October 16, 2022</p>
+            <p class="urgentDeadlineText fontsize-16 fontweight-400 fontcolor-darkblue">Upcoming Deadline</p>
+        </a>
+    </div>
+    </div>
+    <div class="summaryTasksFeedbackContainer d-flex gap-28">
+        <div class="tasksInBoardCard d-flex flex-column align-items-center hoverEffect">
+            <a class="linkToBoard" href="./board.html">
+                <p class="tasksInBoardAmont fontsize-64 fontweight-600" id="totalTodos"></p>
+                <p class="tasksInBoardFirstTD fontsize-20 fontcolor-darkblue">Tasks in</p>
+                <p class="tasksInBoardSecondTD fontsize-20 fontcolor-darkblue">Board</p>
+            </a>
+        </div>
+        <div class="tasksInProgressCard d-flex flex-column align-items-center hoverEffect">
+            <a class="linkToBoard" href="./board.html">
+                <p class="tasksInProgressAmount fontsize-64 fontweight-600" id="tasksInProgress"></p>
+                <p class="tasksInProgressFirstTD fontsize-20 fontcolor-darkblue">Tasks in</p>
+                <p class="tasksInProgressSecondTD fontsize-20 fontcolor-darkblue">Progress</p>
+            </a>
+        </div>
+        <div class="awaitingFeedbackCard d-flex flex-column align-items-center hoverEffect">
+            <a class="linkToBoard" href="./board.html">
+                <p class="awaitingFeedbackAmount fontsize-64 fontweight-600" id="awaitingFeedback"></p>
+                <p class="awaitingFeedbackTextFirstTD fontsize-20 fontcolor-darkblue">Awaiting </p>
+                <p class="awaitingFeedbackTextSecondTD fontsize-20 fontcolor-darkblue">Feedback</p>
+            </a>
+        </div>
+    </div>
+    </div>
+
+    <div class="greetingContainer gap-3">
+        <p class="fontsize-47 fontcolor-darkblue">Good morning,</p>
+        <p class="fontsize-64 fontcolor-lightblue" id="greeting-user"></p>
+    </div>
+    </div>
+</body>
+
+</html>

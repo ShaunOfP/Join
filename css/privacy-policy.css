@@ -1,0 +1,100 @@
+.pp-container-all {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    width: 80%;
+    font-family: 'Inter', sans-serif !important;
+    position: relative;
+    top: 150px;
+    left: 284px;
+}
+
+.pp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 56px;
+    margin-left: 52px;
+    margin-right: 52px;
+}
+
+.pp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pp-headline {
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    gap: 10px;
+}
+
+.text h2 {
+    line-height: 32.4px !important;
+}
+
+
+
+.indexHeaderContainer {
+    height: 96px;
+    width: 100vw;
+    padding: 20px 40px 20px 40px;
+    align-self: center;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+    background-color: #ffffff;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    font-size: 24px;
+}
+
+
+@media only screen and (max-width: 1427px) {
+    .pp-container-all {
+        left: 230px;
+    }
+}
+
+@media only screen and (max-width: 1157px) {
+    .pp-container-all {
+        left: 0px;
+        top: 0px;
+    }
+
+    .pp-container {
+        margin: 0;
+        padding: 160px 76px 76px 76px;
+    }
+
+    .text {
+        padding-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 463px) {
+    .pp-container {
+        padding: 160px 20px 100px ;
+    }
+
+    .pp-headline {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 16.8px;
+
+    }
+}

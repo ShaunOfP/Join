@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Join | Board</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <script src="../js/userData.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/login-script.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/boardedit.js"></script>
+    <script src="../js/board-task-info-edit.js"></script>
+    <script src="../js/board-task-info-edit-html.js"></script>
+</head>
+
+<body onload="includeHTML(); storeCurrentPage(); boardInit();">
+    <div w3-include-html="../templates/headerandnavbar.html"></div>
+
+    <div class="board-container-all">
+        <div class="board-header flex-column d-flex align-items-center w-100">
+            <div class="d-flex w-100">
+                <div class="d-flex align-items-center w-100 justify-content-between">
+                    <div class="headline">Board</div>
+
+                    <div class="d-flex">
+                        <div id="board-searchbar" class="d-flex w-504 gap-32 align-items-center">
+                            <input id="inputFilterTasks" onkeyup="updateHTML()"
+                                class="board-input input-field form-control w-312" type="text"
+                                placeholder="Find Task" />
+                            <img class="margin-left-120" src="../img/board-vertical-line.svg" alt="" />
+                            <div class="board-search-icon-container">
+                                <img class="search-icon" src="../img/search.svg" alt="" />
+                            </div>
+                            <div id="board-add-task-btn" class="board-add-task">
+                                <a class="board-add-task-link" href="addtask.html">Add Task +</a>
+                            </div>
+                        </div>
+                        <a id="responsive-board-add-task-btn" href="/html/addtask.html"
+                            class="height-40 width-40 bg-color-special border-radius-10 justify-content-center align-items-center pointer"><img
+                                src="../img/board/plus-white.svg"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="responsive-search-bar" class="w-100 justify-content-center">
+                <div class="pointer d-flex align-items-center w-100">
+                    <input id="responsiveInputFilterTasks" onkeyup="updateHTML()" class="search-padding w-100 height-48 border-radius-10 border-1-grey" placeholder="Find Task">
+                    <div class="d-flex gap-16 margin-left-negative-67">
+                        <div class="search-seperator"></div>
+                        <img src="../img/board/search.svg" class="search-hover height-32 width-32 scale-down">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="board-task-container" class="board-container d-flex justify-between">
+            <div id="board-todo-container" class="board-todo w-252  vh-70">
+                <div id="board-todo-head" class="board-todo-head d-flex justify-between margin-bottom-20">
+                    <div class="board-todo-title">To do</div>
+                    <div id="todo-to-addtask" class="board-add blue-hover d-flex justify-content-center align-items-center" onclick="moveToAddTask(this)">+</div>
+                </div>
+                <div id="status-todo" class="board-todo-empty d-none">No tasks To do</div>
+
+                <div class="board-todo-list padding-bottom-20 board-setting" id="todo" ondrop="moveTo('todo'); removeHighlight('todo')"
+                    ondragend="removeDragArea()" ondragleave="removeHighlight('todo')"
+                    ondragover="allowDrop(event); highlight('todo')"></div>
+            </div>
+            <div id="board-progress-container" class="board-progress w-252  vh-70">
+                <div id="board-progress-head" class="board-progress-head d-flex justify-between margin-bottom-20">
+                    <div class="board-progress-title">In Progress</div>
+                    <div id="progress-to-addtask" class="board-add blue-hover board-border d-flex justify-content-center align-items-center" onclick="moveToAddTask(this)">+</div>
+                </div>
+                <div id="status-progress" class="board-todo-empty d-none">No tasks To do</div>
+
+                <div class="board-todo-list padding-bottom-20 board-setting" id="progress"
+                    ondrop="moveTo('progress'); removeHighlight('progress')" ondragend="removeDragArea()"
+                    ondragleave="removeHighlight('progress')" ondragover="allowDrop(event); highlight('progress')">
+                </div>
+            </div>
+            <div id="board-feedback-container" class="board-feedback w-252  vh-70">
+                <div id="board-feedback-head" class="board-feedback-head d-flex justify-between margin-bottom-20">
+                    <div class="board-feedback-title">Await feedback</div>
+                    <div id="feedback-to-addtask" class="board-add blue-hover board-border d-flex justify-content-center align-items-center" onclick="moveToAddTask(this)">+</div>
+                </div>
+                <div id="status-feedback" class="board-todo-empty d-none">No tasks To do</div>
+
+                <div class="board-todo-list padding-bottom-20 board-setting" id="feedback"
+                    ondrop="moveTo('feedback'); removeHighlight('feedback')" ondragend="removeDragArea()"
+                    ondragleave="removeHighlight('feedback')" ondragover="allowDrop(event); highlight('feedback')">
+                </div>
+            </div>
+            <div id="board-done-container" class="board-done w-252  vh-70">
+                <div id="board-done-head" class="board-done-head d-flex justify-between margin-bottom-20">
+                    <div class="board-done-title">Done</div>
+                    <div id="done-to-addtask" class="board-add blue-hover board-border d-flex justify-content-center align-items-center" onclick="moveToAddTask(this)">+</div>
+                </div>
+                <div id="status-done" class="board-todo-empty d-none">No tasks To do</div>
+
+                <div class="board-todo-list padding-bottom-20 board-setting" id="done" ondrop="moveTo('done'); removeHighlight('done')"
+                    ondragend="removeDragArea()" ondragleave="removeHighlight('done')"
+                    ondragover="allowDrop(event); highlight('done')"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Popup -->
+    <div id="task-info-popup-all-container" class="justify-content-center align-items-center">
+        <div id="task-info-popup" class="task-info-popup gap-24 d-flex flex-column-custom justify-content-between"></div>
+    </div>
+    <!-- Edit Popup -->
+    <form onsubmit="saveEditTaskChanges(); return false;" id="edit-form-popup" class="edit-form-popup flex-column-custom"></form>
+</body>
+
+</html>

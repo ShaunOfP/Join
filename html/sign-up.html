@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled"> <!-- deaktiviert Landscape mode-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
+
+    <title>Join | Sign up</title>
+    <link rel="stylesheet" href="../css/sign-up.css" />
+
+
+    <script src="../js/userData.js"></script>
+    <script src="../js/login-script.js"></script>
+    <script src="../js/sign-up.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body onload="init()">
+    <div class="layout-signup">
+        <div class="sign-up-container">
+            <div class="success" id="success">
+                <p>You Signed Up successfully</p>
+            </div>
+
+            <header class="height-186">
+                <img class="signup-logo" src="../img/logo.svg" alt="">
+            </header>
+
+            <form onsubmit="confirmPw(); return false;" class="sign-up-card">
+                <div class="flex-column gap-32">
+                    <div class="sign-up-header">
+                        <a href="../index.html" class="arrow-link"><img src="../img/sign-up/Vector.png"></a>
+                        <div class="flex-column">
+                            <p class="sign-up-text">Sign up</p>
+                            <img src="../img/lineblue.svg" alt="">
+                        </div>
+                        <div class="v-hidden width-24">Layout</div>
+                    </div>
+                    <div class="flex-column gap-24">
+                        <input id="name-field" class="form-control input-field bg-person" type="text" placeholder="Name"
+                            required="required">
+                        <input id="mail-field" class="form-control input-field bg-mail" type="email" placeholder="Email"
+                            required="required">
+                        <input id="pw-field" class="form-control input-field bg-lock" type="password"
+                            placeholder="Password" required="required">
+                        <input id="repeat-pw-field" class="form-control input-field bg-lock" type="password"
+                            placeholder="Confirm Password" required="required">
+                        <div id="signup-error-container"
+                            class="error-container d-flex justify-content-center d-none margin-top-negative-20 margin-bottom-negative-24">
+                            <p id="signup-error-field" class="margin-0-important"></p>
+                        </div>
+                    </div>
+                    <div class="accept">
+                        <input id="accept-tos-checkbox" type="checkbox" onchange="toggleButton()">
+                        <p>I accept the <a href="./indexPrivatPolicy.html" class="blue">Privacy Policy</a></p>
+                    </div>
+                    <button type="submit" id="signup-btn" class="btn btn-primary sign-up-btn" disabled="disabled">Sign
+                        up</button>
+                </div>
+            </form>
+
+            <footer class="tos-container">
+                <a class="tos" href="./indexPrivatPolicy.html">Privacy Policy</a>
+                <a class="tos" href="./indexLegalNotice.html">Legal notice</a>
+            </footer>
+        </div>
+
+        <div id="responsive-signup-container" class="padding-left-right-10">
+            <header id="responsive-header">
+                <img src="../img/sign-up/logo.svg">
+            </header>
+
+            <div id="responsive-success">
+                <p id="responsive-success-p">You Signed Up successfully</p>
+            </div>
+
+            <form id="responsive-signup-card" onsubmit="responsiveConfirmPw(); return false;" class="w-100">
+                <div id="responsive-input-section">
+                    <div id="responsive-input-header">
+                        <div class="d-flex flex-row selfmade-gap-5">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="../index.html" class="arrow-link"><img class="arrow"
+                                        src="../img/sign-up/Vector.png"></a>
+                            </div>
+                            <div>
+                                <p id="responsive-input-header-text">Sign up</p>
+                                <img src="../img/lineblue.svg">
+                            </div>
+                            <p class="v-hidden">s</p>
+                        </div>
+                    </div>
+                    <div id="responsive-input-fields">
+                        <input id="responsive-name-field" class="form-control input-field bg-person" type="text"
+                            placeholder="Name" required="required">
+                        <input id="responsive-mail-field" class="form-control input-field bg-mail" type="email"
+                            placeholder="Email" required="required">
+                        <input id="responsive-pw-field" class="form-control input-field bg-lock" type="password"
+                            placeholder="Password" required="required">
+                        <input id="responsive-repeat-pw-field" class="form-control input-field bg-lock" type="password"
+                            placeholder="Confirm Password" required="required">
+                        <div id="responsive-signup-error-container"
+                            class="error-container d-flex justify-content-center d-none margin-top-negative-20 margin-bottom-negative-24">
+                            <p id="responsive-signup-error-field" class="margin-0-important"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="responsive-input-checkbox">
+                    <input id="responsive-accept-tos-checkbox" type="checkbox" onchange="responsiveToggleButton()">
+                    <p id="responsive-input-checkbox-text">I accept the <a href="./indexPrivatPolicy.html"
+                            id="responsive-input-checkbox-link">Privacy Policy</a></p>
+                </div>
+                <button id="responsive-signup-button" type="submit" disabled="disabled"
+                    onclick="responsiveConfirmPw()">Sign
+                    up</button>
+            </form>
+            <footer id="responsive-signup-footer">
+                <p class="responsive-tos-1">
+                    <a id="responsive-tos-1-a" href="./indexPrivatPolicy.html">Privacy Policy</a>
+                </p>
+                <p class="responsive-tos-2">
+                    <a id="responsive-tos-2-a" href="./indexLegalNotice.html">Legal notice</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+@media only screen and (max-width: 428px) {
+  body {
+    background-color: rgb(42, 54, 71) !important;
+  }
+
+  #logo-responsive {
+    display: block;
+  }
+
+  #logo {
+    display: none;
+  }
+}
+
