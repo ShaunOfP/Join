@@ -129,7 +129,6 @@
     }
 }
 
-
 .board-task-heading {
     font-size: 16px;
     font-weight: bold;
@@ -518,7 +517,7 @@
 .task-info-popup-title {
     font-size: 61px;
     font-weight: 700;
-    word-break: break-all;
+    word-break: keep-all;
 }
 
 .task-info-popup-date {

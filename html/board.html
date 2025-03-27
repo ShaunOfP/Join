@@ -113,8 +113,8 @@
     </div>
 
     <!-- Info Popup -->
-    <div id="task-info-popup-all-container" class="justify-content-center align-items-center">
-        <div id="task-info-popup" class="task-info-popup gap-24 d-flex flex-column-custom justify-content-between"></div>
+    <div id="task-info-popup-all-container" class="justify-content-center align-items-center" onclick="closeInfoFormPopup()">
+        <div id="task-info-popup" class="task-info-popup gap-24 d-flex flex-column-custom justify-content-between" onclick="event.stopPropagation()"></div>
     </div>
     <!-- Edit Popup -->
     <form onsubmit="saveEditTaskChanges(); return false;" id="edit-form-popup" class="edit-form-popup flex-column-custom"></form>
