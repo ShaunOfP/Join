@@ -141,6 +141,7 @@
     width: 100%;
     text-overflow: ellipsis !important;
     display: -webkit-box !important;
+    line-clamp: 2 !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
@@ -342,12 +343,12 @@
     padding-bottom: 2px;
 }
 
-.blue-hover:hover{
+.blue-hover:hover {
     color: #29abe2 !important;
     cursor: pointer;
 }
 
-.text-deco-none{
+.text-deco-none {
     text-decoration: none;
 }
 
@@ -498,26 +499,26 @@
     border-radius: 8px;
 }
 
-.status-dropdown{
+.status-dropdown {
     position: relative;
 }
 
-.status-dropdown-arrow{
-    width:0;
-    height:0;
+.status-dropdown-arrow {
+    width: 0;
+    height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 6px solid #fff;
 }
 
-.height-36{
+.height-36 {
     height: 36px;
 }
 
 .task-info-popup-title {
     font-size: 61px;
     font-weight: 700;
-    word-break: keep-all;
+    word-break: keep-all !important;
 }
 
 .task-info-popup-date {
@@ -673,26 +674,26 @@
     max-height: 175px;
 }
 
-.margin-left-10{
+.margin-left-10 {
     margin-left: 10px;
 }
 
-.margin-top-111{
+.margin-top-111 {
     margin-top: 111px;
 }
 
-.margin-right-negative-24{
+.margin-right-negative-24 {
     margin-right: -24px;
 }
 
-.rounded-border-all{
+.rounded-border-all {
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 8px;
 }
 
-.padding-5{
+.padding-5 {
     padding: 5px;
 }
 
@@ -700,11 +701,11 @@
     margin-left: -40px;
 }
 
-.margin-left-8{
+.margin-left-8 {
     margin-left: 8px;
 }
 
-.margin-right-negative-8{
+.margin-right-negative-8 {
     margin-right: -8px;
 }
 
@@ -721,7 +722,7 @@
     max-height: 84px;
 }
 
-.card-status-dropdown{
+.card-status-dropdown {
     display: none;
 }
 
@@ -735,7 +736,7 @@
     }
 }
 
-.form-slide-in-animation{
+.form-slide-in-animation {
     animation-name: form-slide-in;
     animation-duration: .2s;
     animation-timing-function: ease-in-out;
@@ -752,7 +753,7 @@
     }
 }
 
-.form-slide-out-animation{
+.form-slide-out-animation {
     animation-name: form-slide-out;
     animation-duration: .2s;
     animation-timing-function: ease-in-out;
@@ -783,7 +784,7 @@
     background-color: rgb(45, 248, 4)
 }
 
-.color-white{
+.color-white {
     color: white;
 }
 
@@ -1012,13 +1013,13 @@
         gap: 30px !important;
     }
 
-    .card-status-dropdown{
+    .card-status-dropdown {
         display: flex;
         border: none;
         background-color: transparent;
     }
 
-    .card-status-dropdown:hover{
+    .card-status-dropdown:hover {
         cursor: pointer;
     }
 
