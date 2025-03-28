@@ -337,6 +337,7 @@ function showInfoFormPopup(id) {
 function closeInfoFormPopup() {
   let infoForm = document.getElementById('task-info-popup');
   infoForm.classList.add('form-slide-out-animation');
+  boardCurrentSubtasks = [];
   setTimeout(changeInfoFormDisplayStyleOnClose, 200);
 }
 
